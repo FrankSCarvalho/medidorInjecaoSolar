@@ -1,1 +1,1 @@
-# medidorInjecaoSolar
+# Gerenciador de Injeção Solar na rede Elétrica
