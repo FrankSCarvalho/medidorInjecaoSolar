@@ -5,6 +5,5 @@ Neste pequeno projeto quero criar um programa para controlar o a energia que est
 Usarei o TKinter como interface gráfica e o banco de dados sqlite para criar o aplicativo.
 
 ## Passos
----
 
 - [ ] Criar janela principal
