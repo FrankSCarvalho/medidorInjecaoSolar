@@ -5,7 +5,7 @@ class Aplicativo:
     def __init__(self):
         # Criar a janela principal
         self.janela = tk.Tk()
-        self.janela.title("Meu Aplicativo")
+        self.janela.title("Gerenciamento de Energia Solar")
         self.janela.geometry("600x400")
         
         # Criar os widgets
@@ -16,13 +16,26 @@ class Aplicativo:
         self.frame_principal = ttk.Frame(self.janela, padding="10")
         self.frame_principal.pack(fill=tk.BOTH, expand=True)
         
+
         # Label
-        self.label = ttk.Label(self.frame_principal, text="Bem-vindo ao Meu App!")
-        self.label.pack(pady=10)
+        self.label = ttk.Label(self.frame_principal, text="Gerenciamento de Energia Solar")
+        self.label.grid(column=0, row=0, columnspan=2)
+
+        # Label Consumo
+        self.lblConsumo = ttk.Label(self.frame_principal, text="Consumo (KWh):")
+        self.lblConsumo.grid(column=0, row=1, padx=10, pady=10)
         
-        # Entry
-        self.entry = ttk.Entry(self.frame_principal, width=30)
-        self.entry.pack(pady=5)
+        # Entry Consumo
+        self.entryConsumo = ttk.Entry(self.frame_principal)
+        self.entryConsumo.grid(column=1, row=1, padx=10, pady=10)
+
+        # Label Injetada
+        self.lblInjetada = ttk.Label(self.frame_principal, text="Energia Injetada (KWh):")
+        self.lblInjetada.grid(column=0, row=2, padx=10, pady=10)
+        
+        # Entry Injetada
+        self.entryInjetada = ttk.Entry(self.frame_principal)
+        self.entryInjetada.grid(column=1, row=2, padx=10, pady=10)
         
         # Botão
         self.botao = ttk.Button(
@@ -30,11 +43,11 @@ class Aplicativo:
             text="Clique Aqui", 
             command=self.ao_clicar_botao
         )
-        self.botao.pack(pady=5)
+        self.botao.grid(column=1,row=3,pady=5)
         
         # Listbox
         self.listbox = tk.Listbox(self.frame_principal, height=10)
-        self.listbox.pack(pady=10, fill=tk.BOTH, expand=True)
+        self.listbox.grid(column=0, row=4, columnspan=2)
         
     def ao_clicar_botao(self):
         texto = self.entry.get()
