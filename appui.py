@@ -103,7 +103,7 @@ class appUI:
         consumo = self.entry_consumo.get()
         injecao = self.entry_injecao.get()
 
-        inserir_dados(data,int(consumo),int(injecao))
+        inserir_dados(data,consumo,injecao)
 
         
 
@@ -114,6 +114,9 @@ class appUI:
         pass
 
     def limpar(self):
+        pass
+
+    def carregar_tabela():
         pass
 
 
