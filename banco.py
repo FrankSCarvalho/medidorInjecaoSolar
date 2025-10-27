@@ -10,8 +10,13 @@ def inserir_dados(data, consumo, injecao):
     consumo = int(consumo)
     injecao = int(injecao)
     resultado = injecao-consumo
-    
+
     db.insert({'data': data, 'consumo': consumo, 'injecao': injecao, 'resultado': resultado})
 
     db.close()
 
+def listar_dados():
+    db = abrir_banco()
+    dados = db.all()
+    db.close()
+    return dados

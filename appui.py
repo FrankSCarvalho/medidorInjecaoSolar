@@ -2,7 +2,7 @@
 import tkinter as tk
 import tkinter.ttk as ttk
 
-from banco import inserir_dados
+from banco import inserir_dados, listar_dados
 
 
 def i18n_translator_noop(value):
@@ -33,7 +33,7 @@ class appUI:
         translator=None,
         on_first_object_cb=None,
         data_pool=None,
-        image_loader=None
+        image_loader=None        
     ):
         if translator is None:
             translator = i18n_translator_noop
@@ -87,13 +87,22 @@ class appUI:
         frame2.pack(pady=10, side="top")
         frame4 = ttk.Frame(tk1)
         frame4.configure(height=200, width=200)
-        self.tabela = ttk.Treeview(frame4, name="tabela")
+
+        colunas = ("Data","Consumo","Injeção", "Resultado")
+        self.tabela = ttk.Treeview(frame4, columns=colunas, show="headings")
+
+        for coluna in colunas:
+            self.tabela.heading(coluna,text=coluna)
+            self.tabela.column(coluna,width=100,anchor="center")
+
         self.tabela.configure(selectmode="extended")
         self.tabela.pack(expand=True, fill="both", side="top")
         frame4.pack(expand=True, fill="both", padx=10, pady=10, side="top")
-
+        
         # Main widget
         self.mainwindow = tk1
+
+        self.carregar_tabela()
 
     def run(self):
         self.mainwindow.mainloop()
@@ -116,10 +125,13 @@ class appUI:
     def limpar(self):
         pass
 
-    def carregar_tabela():
-        pass
-
+    def carregar_tabela(self):
+        for item in self.tabela.get_children():
+            self.tabela.delete(item)
+        for dado in listar_dados():
+            self.tabela.insert("", tk.END, values=(dado["data"],dado["consumo"],dado["injecao"],dado["resultado"]))
 
 if __name__ == "__main__":
     app = appUI()
     app.run()
+    
