@@ -207,8 +207,6 @@ marimo/_lsp/
 __marimo__/
 
 
-*.db
-
 db.json
 app.py
 app.ui
