@@ -13,9 +13,11 @@ class appUI:
 
         frame1 = ttk.Frame(tk1)
         frame1.configure(height=200, width=200)
+
         self.lbl_data = ttk.Label(frame1, name="lbl_data")
         self.lbl_data.configure(text='Data:')
         self.lbl_data.grid(column=0, padx=5, pady=5, row=0)
+        
         self.lbl_consumo = ttk.Label(frame1, name="lbl_consumo")
         self.lbl_consumo.configure(text='Consumo:')
         self.lbl_consumo.grid(column=0, padx=5, pady=5, row=1)
