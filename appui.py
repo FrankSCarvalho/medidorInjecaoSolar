@@ -4,49 +4,12 @@ import tkinter.ttk as ttk
 
 from banco import inserir_dados, listar_dados
 
-
-def i18n_translator_noop(value):
-    """i18n - Setup translator in derived class file"""
-    return value
-
-
-def first_object_callback_noop(widget):
-    """on first objec callback - Setup callback in derived class file."""
-    pass
-
-
-def image_loader_default(master, image_name: str):
-    """Image loader - Setup image_loader in derived class file."""
-    img = None
-    try:
-        img = tk.PhotoImage(file=image_name, master=master)
-    except tk.TclError:
-        pass
-    return img
-
-
 class appUI:
-    def __init__(
-        self,
-        master=None,
-        *,
-        translator=None,
-        on_first_object_cb=None,
-        data_pool=None,
-        image_loader=None        
-    ):
-        if translator is None:
-            translator = i18n_translator_noop
-        _ = translator  # i18n string marker.
-        if image_loader is None:
-            image_loader = image_loader_default
-        if on_first_object_cb is None:
-            on_first_object_cb = first_object_callback_noop
-        # build ui
+    def __init__(self, master=None):
+        
         tk1 = tk.Tk(master)
         tk1.configure(height=200, width=200)
-        # First object created
-        on_first_object_cb(tk1)
+        
 
         frame1 = ttk.Frame(tk1)
         frame1.configure(height=200, width=200)
